@@ -6,6 +6,7 @@
 pip install -r requirements.txt
 
 сделать миграции:
+python manage.py makemigrations personal_card  
 python manage.py makemigrations
 python manage.py migrate
 
