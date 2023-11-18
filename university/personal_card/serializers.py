@@ -9,9 +9,11 @@ class PersonalCardStudentSerializer(serializers.ModelSerializer):
 
 
 class StudentSerializer(serializers.ModelSerializer):
+    first_name = serializers.SlugRelatedField(slug_field='name',
+                                              queryset=PersonalCardStudent.objects.all())
     class Meta:
         model = Student
-        fields = ['first_name', 'last_name']
+        fields = ['id', 'first_name', 'last_name']
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -31,7 +33,7 @@ class SemesterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Semester
-        fields = ['teacher_id', 'number_semester']
+        fields = ['id', 'teacher_id', 'number_semester']
 
 
 class SemesterCourseSerializer(serializers.ModelSerializer):

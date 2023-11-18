@@ -5,9 +5,11 @@
 установить зависимости из файла requirements:
 pip install -r requirements.txt
 
+в корне проекта создать файл .env и скопировать в него данные из файла example.env
+
 сделать миграции:
-python manage.py makemigrations personal_card  
-python manage.py makemigrations
+python manage.py makemigrations personal_card  \\
+python manage.py makemigrations  \\
 python manage.py migrate
 
 Заполнить базу данных произвольными данными

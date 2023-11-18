@@ -1,5 +1,3 @@
-# from django.shortcuts import render
-# import django_filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, status
 from rest_framework.generics import get_object_or_404
@@ -143,7 +141,7 @@ class UpdateDestroyTeacher(generics.RetrieveUpdateDestroyAPIView):
 
 class SearchTeacher(generics.ListAPIView):
 
-    """Поиск профессора по фамилии или по званию"""
+    """Поиск учителя по фамилии или по званию"""
 
     filter_backends = (DjangoFilterBackend,)
     serializer_class = TeacherSerializer
