@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  webs:
+    build: .
+    container_name: webs
+    command: python /iКРИТ/university/manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+
+  postgres:
+    container_name: test_db
+    image: postgres:14-alpine
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+
+
+  pgadmins:
+    container_name: pgadmins
+    image: dpage/pgadmin4
+    env_file:
+      - .env
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+
